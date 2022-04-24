@@ -1,0 +1,21 @@
+---
+- name: Installing Packages
+  hosts: all
+  gather_facts: no
+  become: true
+
+  tasks:
+  - name: Installing Packages
+    yum:
+      name: httpd
+      state: latest
+
+  - name: starting httpd services
+    service:
+      name: httpd
+      state: started  
+
+  - name: Copy The File
+    copy: 
+      src: /home/ansibleadmin/playbook/index.html
+      dest: /var/www/html

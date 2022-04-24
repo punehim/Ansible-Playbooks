@@ -1,0 +1,17 @@
+---
+- name: install multiple Packages
+  hosts: all
+  become: true
+  gather_facts: yes
+
+
+  tasks:
+  - name: installing Packages
+    yum:
+     name: ['git', 'wget', 'httpd', 'tree', 'telnet', 'gzip']
+     state: installed
+
+
+
+
+     # For delete packages put state = absent

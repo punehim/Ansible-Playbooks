@@ -1,0 +1,38 @@
+---
+- name: Installing Packagea
+  hosts: all
+  become: true
+  gather_facts: yes
+
+
+  tasks:
+   - name: Installing HTTPD RedHat
+     yum:
+      name: httpd
+      state: installed
+     when: ansible_os_family == "RedHat"
+
+
+   - name: installed httpd on ubuntu
+     apt: 
+       name: apache2
+       state: installed
+     when: ansible_os_family == "Debian"
+
+
+   - name: Start Apache Services On Ubuntu
+     service: 
+       name: apache2
+       state: started
+     when: ansible_os_family == "Debian"      
+
+   - name: starting httpd services
+     service: 
+       name: httpd
+       state: started
+     when: ansible_os_family == "RedHat" 
+
+   - name: Copying the Files
+     copy: 
+       src: /home/ansibleadmin/playbook/index.html
+       dest: /var/www/html               

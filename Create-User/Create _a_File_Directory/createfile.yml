@@ -1,0 +1,15 @@
+---
+- name: Creating File and Directories
+  hosts: all
+  become: true
+  gather_facts: no
+
+
+  tasks:
+   - name: Create a File for directory state directory karna hain and for delete state is absent
+     file:
+       path: /home/ansibleadmin/testfile
+       state: touch
+       mode: 0755 
+       owner: ansibleadmin
+       group: ansibleadmin
