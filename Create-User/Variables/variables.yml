@@ -1,0 +1,20 @@
+---
+name: Creating User
+hosts: all
+gather_facts: no
+become: true
+tasks: 
+- name: creating user him1
+  user: 
+    name: him1
+
+
+- name: Create a Directory
+  file: 
+    path: /home/ansibalman/him1_dir
+    state: directory
+    owner: him1
+    group: him1   
+    mode: 0755   
+vars_files:
+  - # /Path of VariableS
