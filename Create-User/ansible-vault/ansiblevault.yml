@@ -1,0 +1,13 @@
+ANSIBLE VAULT For Securing Text Files and Passwords
+
+ansible-vauly create ansiblevault1.yml
+
+ansible-vault view vault1.yml
+
+If we need to Encrypt any available file then: 
+
+ansible-vault encrypt user.yml
+ansible-vault decrypt user.yml 
+
+
+ansible-galaxy init tomcat_setup

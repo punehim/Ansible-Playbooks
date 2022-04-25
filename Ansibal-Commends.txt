@@ -43,7 +43,23 @@ setup ====>>  ansible all -m setup   ## It's Gather all Client information softw
 
 ansible all --list-hosts  ## To view HOSTS
 ================================
-CONDITIONS
+ANSIBLE VAULT For Securing Text Files and Passwords
+
+ansible-vauly create ansiblevault1.yml
+
+ansible-vault view vault1.yml
+
+If we need to Encrypt any available file then: 
+
+ansible-vault encrypt user.yml
+ansible-vault decrypt user.yml
+
+2000
+3500
+5000
+6000
+
+with in one month
 
 
 
