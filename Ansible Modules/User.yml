@@ -1,0 +1,30 @@
+# 3. user
+
+# The user module allows you to create and manage Linux users in your target system.
+# This module has many different parameters, 
+# but in its most basic form, you can use it to create a new user.
+
+# For example, to create the user ricardo with UID  2001, 
+# part of the groups users and wheel, and password mypassword, apply the user module with these parameters:
+
+- name: Ensure user ricardo exists
+  user:
+    name: ricardo
+    group: users
+    groups: wheel
+    uid: 2001
+    password: "{{ 'mypassword' | password_hash('sha512') }}"
+    state: present
+
+
+# Notice that this module tries to be idempotent, 
+#but it cannot guarantee that for all its options. For instance, 
+#if you execute the previous module example again, 
+#it will reset the password to the defined value, changing the user in the system for every execution. 
+#To make this example idempotent, use the parameter update_password: on_create, 
+#ensuring Ansible only sets the password when creating the user and not on subsequent runs.
+
+#You can also use this module to delete a user by setting the parameter state: absent.
+
+#The user module has many options for you to manage multiple user aspects.
+# Make sure you take a look at the module documentation for more information.

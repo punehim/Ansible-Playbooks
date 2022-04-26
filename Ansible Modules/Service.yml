@@ -1,0 +1,21 @@
+# 5. service
+
+# Use the service module to manage the target system services using the required init system; 
+# for example, systemd.
+
+# In its most basic form, all you have to do is provide the service name and the desired state. 
+# For instance, to start the sshd service, use the module like this:
+
+- name: Ensure SSHD is started
+  service:
+    name: sshd
+    state: started
+
+# You can also ensure the service starts automatically when the target system boots up by providing 
+# the parameter enabled: yes.
+
+# As with the package module, the service module is flexible and works across different distributions.
+# If you need fine-tuning over the specific target init system, use the corresponding module; 
+# for example, the module systemd.
+
+#Similar to the other modules you've seen so far, the service module is also idempotent.

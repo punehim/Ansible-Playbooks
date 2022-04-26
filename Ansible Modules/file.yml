@@ -1,0 +1,24 @@
+# 7. file
+
+# The file module allows you to control the state of files and directories—setting permissions, ownership,
+#  and SELinux labels.
+
+# For instance, use the file module to create a directory /app owned by the user ricardo, 
+# with read, write, and execute permissions for the owner and the group users:
+
+- name: Ensure directory /app exists
+  file:
+    path: /app
+    state: directory
+    owner: ricardo
+    group: users
+    mode: 0770
+
+
+# You can also use this module to set file properties on directories recursively by using the parameter 
+# recurse: yes or delete files and directories with the parameter state: absent.
+
+# This module works with idempotency for most of its parameters, 
+# but some of them may make it change the target path every time. 
+# Check the documentation for more details.
+

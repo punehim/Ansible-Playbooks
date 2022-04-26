@@ -1,0 +1,25 @@
+# 9. unarchive
+
+# Use the unarchive module to extract the contents of archive files such as tar or zip files. 
+# By default, it copies the archive file from the control node to the target machine before extracting it.
+# Change this behavior by providing the parameter remote_src: yes.
+
+# For example, extract the contents of a .tar.gz file that has already been downloaded to the target host
+# with this syntax:
+
+- name: Extract contents of app.tar.gz
+  unarchive:
+    src: /tmp/app.tar.gz
+    dest: /app
+    remote_src: yes
+
+# Some archive technologies require additional packages to be available on the target system; 
+# for example, the package unzip to extract .zip files.
+
+# Depending on the archive format used, this module may or may not work idempotently. 
+# To prevent unnecessary changes, you can use the parameter creates to specify a file or directory
+# that this module would create when extracting the archive contents.
+# If this file or directory already exists, the module does not extract the contents again.
+
+
+

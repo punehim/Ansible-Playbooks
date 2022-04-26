@@ -1,0 +1,23 @@
+# 4. package
+# The package module allows you to install, update,
+# or remove software packages from your target system using the operating system standard package manager.
+
+# For example, to install the Apache web server on a Red Hat Linux machine, apply the module like this:
+
+- name: Ensure Apache package is installed
+  package:
+    name: httpd
+    state: present
+
+  # This module is distribution agnostic, and it works by using the underlying package manager, 
+  #such as yum/dnf for Red Hat-based distributions and apt for Debian. 
+  #Because of that, it only does basic tasks like install and remove packages. 
+  #If you need more control over the package manager options, 
+  #use the specific module for the target distribution.
+
+  # Also, keep in mind that, even though the module itself works on different distributions, 
+  # the package name for each can be different. For instance, in Red Hat-based distribution, 
+  # the Apache web server package name is httpd, while in Debian, it is apache2. 
+  #Ensure your playbooks deal with that.
+
+# This module is idempotent, and it will not act if the current system state matches the desired state.

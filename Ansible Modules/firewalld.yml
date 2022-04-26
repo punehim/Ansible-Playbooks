@@ -1,0 +1,28 @@
+# 6. firewalld
+
+# Use the firewalld module to control the system firewall with the firewalld daemon on systems 
+#that support it, such as Red Hat-based distributions.
+
+# For example, to open the HTTP service on port 80, use it like this:
+
+- name: Ensure port 80 (http) is open
+  firewalld:
+    service: http
+    state: enabled
+    permanent: yes
+    immediate: yes
+
+
+ # You can also specify custom ports instead of service names with the port parameter. 
+ # In this case, make sure to specify the protocol as well. 
+ # For example, to open TCP port 3000, use this
+
+ - name: Ensure port 3000/TCP is open
+  firewalld:
+    port: 3000/tcp
+    state: enabled
+    permanent: yes
+    immediate: yes
+
+    # You can also use this module to control other firewalld aspects like zones or complex rules. 
+    #Make sure to check the module's documentation for a comprehensive list of options.

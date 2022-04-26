@@ -1,0 +1,29 @@
+# 8. lineinfile
+
+# The lineinfile module allows you to manage single lines on existing files.
+# It's useful to update targeted configuration on existing files without changing 
+# the rest of the file or copying the entire configuration file.
+
+# For example, add a new entry to your hosts file like this:
+
+- name: Ensure host rh8-vm03 in hosts file
+  lineinfile:
+    path: /etc/hosts
+    line: 192.168.122.236 rh8-vm03
+    state: present
+
+ # You can also use this module to change an existing line by applying the parameter regexp to look 
+ # for an existing line to replace. For example, update the sshd_config file to prevent root login by
+ # modifying the line PermitRootLogin yes to PermitRootLogin no:
+
+ - name: Ensure root cannot login via ssh
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PermitRootLogin'
+    line: PermitRootLogin no
+    state: present
+
+ # Note: Use the service module to restart the SSHD service to enable this change.
+
+#This module is also idempotent, but, in case of line modification,
+# ensure the regular expression matches both the original and updated states to avoid unnecessary changes

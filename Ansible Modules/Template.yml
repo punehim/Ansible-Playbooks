@@ -1,0 +1,27 @@
+# 2. template
+# The template module works similarly to the copy module, but it processes content dynamically 
+# using the Jinja2 templating language before copying it to the target hosts.
+
+# For example, define a "message of the day" template that displays the target system name, like this:
+
+- name: Ensure MOTD file is in place
+  template:
+    src: templates/motd.j2
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644
+
+ # Before copying the file, Ansible processes the template and interpolates the variable, 
+ # replacing it with the target host system name. For example, 
+ # if the target system name is rh8-vm03, the result file is:
+
+# Welcome to rh8-vm03.
+
+# While the copy module can also interpolate variables when using the content parameter, 
+# the template module allows additional flexibility by creating template files, 
+# which enable you to define more complex content, including for loops, if conditions, 
+# and more. For a complete reference, check Jinja2 documentation.
+
+# This module is also idempotent, and it will not copy the file 
+# if the content on the target system already matches the template's content.

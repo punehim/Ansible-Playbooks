@@ -1,0 +1,22 @@
+# 10. command
+
+#The command module is a flexible one that allows you to execute arbitrary commands on the target system.
+# Using this module, you can do almost anything on the target system as long as there's a command for it.
+
+# Even though the command module is flexible and powerful, it should be used with caution. 
+# Avoid using the command module to execute a task if there's another appropriate module available for 
+# that. For example, you could create users by using the command module to execute the useradd command, 
+# but you should use the user module instead, as it abstracts many details away from you,
+#  taking care of corner cases and ensuring the configuration only changes when necessary.
+
+# For cases where no modules are available, or to run custom scripts or programs, 
+# the command module is still a great resource. 
+#For instance, use this module to run a script that is already present in the target machine:
+
+- name: Run the app installer
+  command: "/app/install.sh"
+
+ # By default, this module is not idempotent, as Ansible executes the command every single time. 
+ #To make the command module idempotent, you can use when conditions to only execute the command
+ # if the appropriate condition exists, or the creates argument, 
+ # similarly to the unarchive module example.
