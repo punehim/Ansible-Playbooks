@@ -54,12 +54,24 @@ If we need to Encrypt any available file then:
 ansible-vault encrypt user.yml
 ansible-vault decrypt user.yml
 
-2000
-3500
-5000
-6000
 
-with in one month
+======================================
+
+ANSIBLE GALAXY
+
+vi requirements.yml  ## for Role
+
+- src: lean_delivery.java
+  name: lean_delivery.java
+
+
+- src: lean_delivery.jenkins
+  name: lean_delivery.jenkins
+
+ansible-galaxy install -r requirements.yml
+
+
+create name.yml and copy the examples and start playbook
 
 
 

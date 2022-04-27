@@ -1,0 +1,19 @@
+---
+- name: creating
+  hosts: all
+  become: true
+  remote_user: himanshu
+  tasks:
+
+  - name: Ensure MOTD file is in place
+    copy:
+        src: /home/himanshu/playbook/ansi.yml
+        dest: /home/himanshu
+        owner: himanshu
+        group: himanshu
+        mode: 0644
+
+  - name: archiving the
+    archive:  
+        path: /home/himanshu/playbook/ansi.yml
+        dest: /home/himanshu/ansi.tgz

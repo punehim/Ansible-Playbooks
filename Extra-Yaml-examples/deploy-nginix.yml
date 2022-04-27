@@ -1,0 +1,23 @@
+---
+- name: deploying on Nginix
+  hosts: all
+  become: yes
+  vars: 
+    webserver: httpd
+  tasks:
+
+
+  - name: webserver is installed
+    package: 
+       name: "{{ webserver }}"
+       state: present
+
+  - name: webserver is up
+    service: 
+       name: "{{ webserver }}"
+       state: started  
+
+  - name: static website is deployed
+    uri: 
+       url: https://raw.githubusercontent.com/abdennour/example-static-website/ansible-course/index.html
+       dest: /var/www/html
