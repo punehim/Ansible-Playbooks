@@ -30,4 +30,11 @@ git pull
 23- git tag release1.0.1   <to give tag to someone>
 24- git tag --list {to see all tags}  to delete Tags  git tag --delete <tag-name>
 25- git tag -a v-1.0 
+26- git commit --amend -m "NEW MESSAGE"   <To Change the message> 
+27- git reset --soft  : After the Target Commit ID all the Files or changes will move to Staging Area
+
+28- git reset   : After the Target Commit ID all the Files or changes will move to Working Area
+
+29- git reset --soft  : No Data will left for recover.
+
 subl test.txt     { ctrl+s , ctrl+w, ctrl+q}
