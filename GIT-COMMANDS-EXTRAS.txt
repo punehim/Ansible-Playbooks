@@ -27,6 +27,7 @@ git pull
 20- git diff --stageds HEAD
 21- git branch -a  {to see all branches}
 22- git branch -m <branch-name> <new-branch-name> {To change the branch name}
-23- git 
-
+23- git tag release1.0.1   <to give tag to someone>
+24- git tag --list {to see all tags}  to delete Tags  git tag --delete <tag-name>
+25- git tag -a v-1.0 
 subl test.txt     { ctrl+s , ctrl+w, ctrl+q}
