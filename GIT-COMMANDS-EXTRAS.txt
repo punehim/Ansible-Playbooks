@@ -1,0 +1,32 @@
+1 - git log --author="name-of-the-author"
+2 - git diff    <check difference b/w two files>
+3 - git rm <file-name to delete the files> no need to add anything
+==========================
+4 - To add Git desktop to send files in git hub Repo
+
+git init
+git remote add origin <repo-URL>
+git pull
+
+==================================================
+
+5 - git branch develop   <to create Branch>   &&   hit checkout develop 
+6 - git merge <source branch name ex:-proad> <proad changes comes in master branch>  --allow-unrelated-histories (if error aaye) and git push
+7 - git reset HEAD file1 <remove files staging area to working area   after {add .}>
+8 - git reset HEAD~    <after commit we need to change the files>
+9 - <> http://www.initializr.com/ <>  {Doenload sample Projects
+10 - git branch -d master  {TO delete the branch}
+11- git mv file1 new-file-name
+12-  git log --oneline --graph --decorate   short form to see commits
+13-  git log --since="2 days ago"  {to see commits for last 2 days}
+15-   git log -- filename.txt  {to see the special file commits}
+16- git show commit-id  {to shaw whole coomit for particular file}
+17- git help log
+18- git log --all --graph --decorate --oneline
+19- git config --global alias.history "log --all --graph --decorate --oneline  {To set globally please show histort in that formate}
+20- git diff --stageds HEAD
+21- git branch -a  {to see all branches}
+22- git branch -m <branch-name> <new-branch-name> {To change the branch name}
+23- git 
+
+subl test.txt     { ctrl+s , ctrl+w, ctrl+q}
