@@ -1,0 +1,30 @@
+---
+- name: install mysql
+  hosts: all
+  become: true
+  gather_facts: yes
+
+
+  tasks:
+   - name: Copying Repo file
+     copy: src=/etc/yum.repos.d/rhel.repo dest=/etc/yum.repos.d/rhel.repo
+   - name: Install wget
+     yum: name=wget state=installed
+   - name: install python
+     yum: name=MySQL-python state=installed
+   - name: Download lib
+     get_url: url=http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm dest=/usr/mysql/mysql-community-release-el7-5.noarch.rpm  
+   - name: Install rpm
+     yum: name=/usr/mysql/mysql-community-release-el7-5.noarch.rpm state=present
+   - name: Update Package
+     yum: name=* state=latest
+   - name: Install Mysql
+     yum: name=mysql-server state=installed
+   - name: Start Sql Service
+     service: name=mysqld state=restarted
+   - name: create demo database
+     mysql_db: name=himanshu state=present
+   - name: create demo user
+     mysql_user: name=demo password=demo priv=demo.*:ALL host='%' state=present
+   - name: restart mysql
+     service: name=mysql state=restarted
